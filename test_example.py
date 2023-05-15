@@ -1,11 +1,12 @@
 import debugpy
 import torch
+from torchviz import make_dot
 import torchvision
 import argparse
 def test_msg(msg):
     assert msg == "hello world"
     print(msg)
-    
+import os  
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', required=False, type=str, help="config file")
@@ -27,8 +28,9 @@ if __name__ == "__main__":
     for i in range(100):
         optim.zero_grad()
         b = FCNN(a)
-        l = loss_func(b,target)
-        l.backward()
+        loss = loss_func(b,target)
+        loss.backward()
         optim.step()
-        
+    
+    print(os.getcwd())
     print("end of debug")
