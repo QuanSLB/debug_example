@@ -11,6 +11,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', required=False, type=str, help="config file")
     parser.add_argument('--lr', required=False, type=str, help="learning rate")
+    parser.add_argument('v','--verbose', required=False, type=str, help="verbose")
 
     args, non_added = parser.parse_known_args()
     print(args)
